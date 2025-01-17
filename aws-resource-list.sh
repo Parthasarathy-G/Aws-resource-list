@@ -5,6 +5,7 @@
 # This script will list all the resources in the AWS account
 # Author : Parthasarathy G
 # Version: v0.0.1
+# Date : 17/01/2025
 
 # Following are the supported AWS services by the script
 # 1. EC2
