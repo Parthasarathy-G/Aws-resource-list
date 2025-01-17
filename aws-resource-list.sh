@@ -26,7 +26,8 @@
 # Check if the required arguments are passed
 
    if [ $# -ne 2 ]; then
-    echo "Usage: $0 <region> <service-name>"
+   echo "Usage: ./aws-resource-list.sh <region> <service-name>"
+   echo "Example: ./aws-resource-list.sh us-east-1 ec2"
     exit 1
 fi
 
