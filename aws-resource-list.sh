@@ -38,3 +38,47 @@ then
     exit
 fi
 
+#Check if the AWS CLI is configured
+
+if [ ! -d ~/.aws ]; then
+    echo "AWS CLI is not configured. Please configure the AWS CLI"
+    exit
+fi
+
+#Execute the AWS CLI command based on the service name
+
+case $2 in
+    ec2)
+        aws ec2 describe-instances --region $1
+        ;;
+    s3)
+        aws s3api list-buckets --region $1
+        ;;
+    rds)
+        aws rds describe-db-instances --region $1
+        ;;
+    dynamodb)
+        aws dynamodb list-tables --region $1
+        ;;
+    lambda)
+        aws lambda list-functions --region $1
+        ;;
+    iam)
+        aws iam list-users --region $1
+        ;;
+    cloudformation)
+        aws cloudformation list-stacks --region $1
+        ;;
+    cloudwatch)
+        aws cloudwatch list-metrics --region $1
+        ;;
+    vpc)
+        aws ec2 describe-vpcs --region $1
+        ;;
+    sns)
+        aws sns list-topics --region $1
+        ;;
+    *)
+        echo "Invalid service name. Please provide a valid service name"
+        ;;
+esac
